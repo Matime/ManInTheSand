@@ -29,7 +29,12 @@ class Controller {
         int startY = Math.max(man.getY() - 1, 0);
         int endX = Math.min(man.getX() + 1, board.getWidth() - 1);
         int endY = Math.min(man.getY() + 1, board.getHeight() - 1);
-        return !Arrays.stream(board.getSubBoard(startX, startY, endX, endY)).allMatch(o -> Arrays.stream(o).allMatch(f -> f));
+        for(int rowNum=startX;rowNum<=endX;rowNum++)
+            for(int colNum=startY;colNum<=endY;colNum++){
+                if(!board.getBoard()[rowNum][colNum])
+                    return true;
+            }
+            return false;
     }
 
     private void moveMan() {
