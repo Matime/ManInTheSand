@@ -61,14 +61,6 @@ class Board {
         return board;
     }
 
-    public Boolean[][] getSubBoard(int sX, int sY, int eX, int eY) {
-        Boolean[][] toReturn = new Boolean[eX - sX + 1][];
-        for (int i = 0; i < toReturn.length; i++) {
-            toReturn[i] = Arrays.copyOfRange(board[sX + i], sY, eY + 1);
-        }
-        return toReturn;
-    }
-
     public void printNonVisitedCount() {
         System.out.println(Arrays.deepToString(board).replaceAll("[^f]", "").length());
     }
